@@ -12,5 +12,5 @@
     <dubbo:registry protocol="zookeeper" address="${dubbo.registry.address}" />
     <!-- 设置不依赖 -->
  	<dubbo:consumer check="false" timeout="3000"/>
- 	<dubbo:reference interface="com.simple.frame.xml.api.TestAPi" id="testApi"  version="1.0" protocol="dubbo"  retries="0"/>
+ 	<dubbo:reference interface="com.simple.frame.bean.api.TestAPi" id="testApi" version="1.0" protocol="dubbo" retries="0"/>
 </beans>

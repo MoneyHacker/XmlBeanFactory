@@ -1,2 +1,2 @@
-http\://dubbo.apache.org/schema/dubbo=com.simple.frame.xml.dubbo.DubboNamespaceHandler
-http\://code.alibabatech.com/schema/dubbo=com.simple.frame.xml.dubbo.DubboNamespaceHandler
+http\://dubbo.apache.org/schema/dubbo=com.simple.frame.bean.dubbo.DubboNamespaceHandler
+http\://code.alibabatech.com/schema/dubbo=com.simple.frame.bean.dubbo.DubboNamespaceHandler
