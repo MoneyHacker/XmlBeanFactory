@@ -8,30 +8,33 @@ import com.simple.frame.bean.exception.NoSuchBeanDefinitionException;
 import com.simple.frame.bean.module.ResolvableType;
 import com.simple.frame.bean.spi.BeanFactory;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * Created by lvxiang@ganji.com 2018/12/8 10:52
  *
  * @author <a href="mailto:lvxiang@ganji.com">simple</a>
  */
 public class DefaultBeanFactory implements BeanDefinitionRegistry,BeanFactory {
+    private ConcurrentHashMap<String,BeanDefinition> beanMap = new ConcurrentHashMap();
     @Override
     public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition) throws BeanDefinitionStoreException {
-
+        beanMap.put(beanName,beanDefinition);
     }
 
     @Override
     public void removeBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
-
+        beanMap.remove(beanName);
     }
 
     @Override
     public BeanDefinition getBeanDefinition(String beanName) throws NoSuchBeanDefinitionException {
-        return null;
+        return beanMap.get(beanName);
     }
 
     @Override
     public boolean containsBeanDefinition(String beanName) {
-        return false;
+        return beanMap.contains(beanName);
     }
 
     @Override
@@ -41,12 +44,12 @@ public class DefaultBeanFactory implements BeanDefinitionRegistry,BeanFactory {
 
     @Override
     public int getBeanDefinitionCount() {
-        return 0;
+        return beanMap.size();
     }
 
     @Override
     public boolean isBeanNameInUse(String beanName) {
-        return false;
+        return beanMap.contains(beanName);
     }
 
     @Override
